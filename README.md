@@ -9,7 +9,7 @@ e monitoramento centralizado.
 ```
 .
 ├── web/   # Front-end — Angular 20 + Angular Material
-└── api/   # Back-end / API — ainda não implementado
+└── api/   # Back-end / API — Ruby on Rails 8 (--api)
 ```
 
 Front e API são projetos independentes, cada um na sua pasta.
@@ -17,13 +17,20 @@ Front e API são projetos independentes, cada um na sua pasta.
 ## Como rodar
 
 ```bash
+# API — http://localhost:3000
+cd api
+bundle install
+bin/rails db:prepare
+bin/rails server
+
+# Front-end — http://localhost:4200 (em outro terminal)
 cd web
 npm install
 npm start
 ```
 
-A aplicação sobe em `http://localhost:4200`. Detalhes de cada parte estão nos
-respectivos READMEs: [`web/README.md`](web/README.md) e [`api/README.md`](api/README.md).
+Detalhes de cada parte estão nos respectivos READMEs: [`web/README.md`](web/README.md)
+e [`api/README.md`](api/README.md).
 
 ## Conexão web ↔ API
 
@@ -40,5 +47,6 @@ O contrato mínimo esperado da API está descrito em [`api/README.md`](api/READM
 ## Estado atual
 
 - [x] Scaffold do front-end (Angular + Material, roteamento, lint, services HTTP)
-- [ ] API (a implementar)
+- [x] Scaffold da API (Rails 8 --api, CORS, `GET /api/health`)
 - [ ] Telas de Robôs, Execuções, Agendamentos e Login (a definir)
+- [ ] Modelagem de dados e autenticação na API
