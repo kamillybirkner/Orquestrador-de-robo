@@ -1,0 +1,24 @@
+<div class="home">
+  <mat-card class="status-card">
+    <mat-card-header>
+      <mat-card-title>Status da API</mat-card-title>
+      <mat-card-subtitle>Orquestrador de Robôs RPA</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      @if (loading()) {
+        <div class="status-row">
+          <mat-spinner diameter="24"></mat-spinner>
+          <span>Verificando conexão com a API...</span>
+        </div>
+      } @else {
+        <div class="status-row">
+          <mat-icon [class.status-ok]="status()?.connected" [class.status-fail]="!status()?.connected">
+            {{ status()?.connected ? 'check_circle' : 'error' }}
+          </mat-icon>
+          <span>{{ status()?.message }}</span>
+        </div>
+      }
+    </mat-card-content>
+  </mat-card>
+</div>

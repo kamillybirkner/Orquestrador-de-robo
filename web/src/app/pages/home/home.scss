@@ -1,0 +1,24 @@
+.home {
+  display: flex;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+.status-card {
+  max-width: 480px;
+  width: 100%;
+}
+
+.status-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.status-ok {
+  color: #2e7d32;
+}
+
+.status-fail {
+  color: #c62828;
+}
