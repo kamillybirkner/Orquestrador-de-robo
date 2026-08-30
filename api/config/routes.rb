@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
-  post '/login', to: 'sessions#create'
+  post "/login", to: "sessions#create"
 
   namespace :api do
     get "health", to: "health#show"
@@ -12,7 +12,9 @@ Rails.application.routes.draw do
         get :versions
       end
     end
-  end
 
-  # root "posts#index"
+    get "dashboard/summary", to: "dashboard#summary"
+    get "dashboard/volumetria", to: "dashboard#volumetria"
+    get "dashboard/filter_options", to: "dashboard#filter_options"
+  end
 end
